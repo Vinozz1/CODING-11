@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Image</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 135px;
+            text-align: center;
+            background-color: gray;
+        }
+        img {
+            border: 5px solid white;
+            padding: 10px;
+            width: 450px; 
+            height: 450px; 
+            object-fit: cover;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<script>
+    let images = [
+        'images/a.png',
+        'images/b.png',
+        'images/c.png'
+    ];
+
+    let randomIndex = Math.floor(Math.random() * images.length);
+
+    const imgEl = document.createElement('img');
+    imgEl.src = images[randomIndex];
+    document.body.append(imgEl);
+</script>
+</body>
+</html>
