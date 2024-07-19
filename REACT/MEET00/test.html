@@ -19,7 +19,6 @@
             background-color: #121212;
             color: white;
             font-family: Arial, sans-serif;
-            transition: background-color 1s ease, color 1s ease;
         }
 
         .container {
@@ -29,27 +28,22 @@
             padding: 20px;
         }
 
-        .first-page, .second-page, .countdown-page {
+        .page {
             width: 100%;
             min-height: 100vh;
             display: flex;
-            background-size: cover;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border-image: auto;
-            background-image: url(https://tse3.mm.bing.net/th?id=OIP.QpDpH-yNY7IfwAoRvzVJJAHaKX&pid=Api&P=0&h=220);
+            background-image: url(https://i.pinimg.com/564x/8f/81/78/8f8178b3427b313295f6c6032817f3b4.jpg);
             border-radius: 15px;
-            animation: fadeIn 3.5s ease-in-out;
+            animation: fadeIn 2s ease-in-out;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
             padding: 20px;
             margin-bottom: 20px;
-            transition: background-color 1s ease, color 1s ease;
         }
 
-        .first-page > div, .first-page > p, .first-page > h1, .first-page > h2,
-        .second-page > div, .second-page > p, .second-page > h1, .second-page > h2,
-        .countdown-page > div, .countdown-page > p, .countdown-page > h1, .countdown-page > h2 {
+        .page > div, .page > p, .page > h1, .page > h2 {
             text-align: center;
             margin-bottom: 20px;
             color: black;
@@ -96,14 +90,14 @@
             box-shadow: white 10px 10px;
             height: 12cm;
             width: 30cm;
-        }
+            }
 
         .circle {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             background-color: lightgreen;
-            background-image: url(th.jpeg);
+            background-image: url(meme.gif);
             background-size: cover;
             animation: spin 10s linear infinite;
             box-shadow: white 0pt 0pt 9pt;
@@ -152,167 +146,93 @@
         }
 
         @media (prefers-color-scheme: dark) {
-            body.dark {
+            body {
                 background-color: #121212;
                 color: white;
             }
 
-            .first-page.dark, .second-page.dark, .countdown-page.dark {
-                background-color: #1c1c1c;
+            .page {
+                border-color: white;
+            }
+
+            .card {
+                background-color: #3b3b3b;
                 color: white;
             }
 
-            .card.dark {
-                background-color: #3b3b3b;
-                color: black;
-            }
-
-            .line.dark {
+            .line {
                 background-color: white;
             }
 
             @keyframes float {
-                0% { transform: translateY(0); }
-                50% { transform: translateY(-20px); }
-                100% { transform: translateY(0); }
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
             }
 
             .genap {
-                display: flex;
-                flex-direction: row-reverse;
-                align-items: center;
-                padding-bottom: 4rem;
-                justify-content: space-evenly;
-                animation: float 2s infinite;
-            }
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            padding-bottom: 4rem;
+            justify-content: space-evenly;
+            animation: float 2s infinite;
+            } 
         }
 
-        .btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 25px;
-            background-color: white;
-            border: 2px solid gray;
-            text-align: center;
-            line-height: 50px;
-            cursor: pointer;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-        }
+        
 
-        .btn:hover {
-            background-color: gray;
-        }
-
-        .dark .btn:hover {
-            background-color: #FFFFFF;
-        }
-
-        .btn span {
-            font-size: 24px;
-        }
-
-        .btn span.dark-mode-icon::after {
-            content: "🌑";
-        }
-
-        .btn span.dark-mode-icon.dark::after {
-            content: "☀️";
-            background-color: #FFFFFF;
-        }
-
-        .dark {
-            color: whitesmoke;
-            background-color: rgb(40, 40, 40);
-            transition: background-color 1s ease;
-        }
+        
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="btn">
-            <span class="dark-mode-icon"></span>
-        </div>
-        
-        <section class="first-page">
+        <!-- Cover Page -->
+        <section class="page cover">
             <div class="title">
                 <p>The Wedding of</p>
             </div>
-            <div class="genap">
-                <div class="border">
-                    <img src="https://png.pngtree.com/png-clipart/20230410/ourmid/pngtree-beautiful-circle-border-with-green-and-gold-leaves-png-image_6697106.png" alt="" class="border">
-                </div>
-            </div>
-            <div class="person">
-                <h1 class="tle">Jonathan & Yu Ji-min</h1>
-                <p>Sunday, October 8, 2028</p>
+                <div class="genap">
+                        <div class="border">
+                            <img src="https://png.pngtree.com/png-clipart/20230410/ourmid/pngtree-beautiful-circle-border-with-green-and-gold-leaves-png-image_6697106.png" alt="" class="border">
+                        </div>
+                    </div>
+                    <div class="person">
+                        <h1 class="tle">Suguru & Satoru</h1>
+                <p>Sunday, September 17, 2023</p>
             </div>
             <div class="guest-name">
                 <p>To the esteemed guest,</p>
-                <p>Artha, Ph.Y.</p>
+                <p>Dodi, Ph.D.</p>
             </div>
         </section>
 
-        <section class="second-page">
+        <!-- Invitation Page -->
+        <section class="page invitation">
             <h2 class="tle">The beloved</h2>
-            <h1>Jonathan & Yu Ji-min</h1>
-            <p>Thankyou, for showing me, who you are before i built my whole life on your land, 
-                that way i only had to mourn a garden instead of forest</p>
+            <h1>Suguru & Satoru</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe sunt dicta quam necessitatibus aliquid. Explicabo consequuntur non voluptates molestias quas optio veritatis natus ab distinctio aspernatur quaerat, tenetur id alias aperiam excepturi asperiores modi deleniti aut corrupti qui.</p>
             <div class="card">
                 <div class="circle"></div>
-                <h1>Artha, M.Y</h1>
+                <h1>Shoko-san, S.Pd.</h1>
                 <div class="line"></div>
-                <p>Mr. Artha</p>
+                <p>Mr. Gojo</p>
                 <p>&</p>
-                <p>Mrs. An-Yujin</p>
+                <p>Mrs. Zenin</p>
             </div>
         </section>
 
-        <section class="countdown-page">
-            <h2>Countdown menuju sesuatu yang tak mungkin</h2>
+        <!-- Closing Page with Countdown -->
+        <section class="page closing">
+            <h2>Countdown to the Event</h2>
             <div id="countdown" class="countdown"></div>
-            <p>Ditunggu kehadirannya meskipun saya cuman halu!</p>
+            <p>We are excited to celebrate this special day with you!</p>
         </section>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            let darkInfo = localStorage.getItem("dark") === 'true';
-            
-            const switchDark = () => {
-                document.querySelector("body").classList.add('dark');
-                document.querySelector("body").style.backgroundColor = "#121212";
-                document.querySelectorAll(".first-page, .second-page, .countdown-page").forEach(page => {
-                    page.classList.add('dark');
-                    page.style.backgroundColor = "#1c1c1c";
-                    page.style.color = "white";
-                });
-            }
-
-            const switchLight = () => {
-                document.querySelector("body").classList.remove('dark');
-                document.querySelector("body").style.backgroundColor = "white";
-                document.querySelectorAll(".first-page, .second-page, .countdown-page").forEach(page => {
-                    page.classList.remove('dark');
-                    page.style.backgroundColor = "black";
-                    page.style.color = "white";
-                });
-            }
-
-            if (darkInfo) switchDark();
-            else switchLight();
-
-            document.querySelector(".btn").addEventListener('click', () => {
-                darkInfo = !darkInfo;
-                if (darkInfo) switchDark();
-                else switchLight();
-                localStorage.setItem("dark", darkInfo);
-            });
-        });
-
         function updateCountdown() {
-            const eventDate = new Date('October 8, 2028 00:00:00').getTime();
+            const eventDate = new Date('September 17, 2023 00:00:00').getTime();
             const now = new Date().getTime();
             const distance = eventDate - now;
 

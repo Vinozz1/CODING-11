@@ -1,0 +1,18 @@
+[
+    {
+        "title" : "The first title",
+        "imageUrl" : "images/a.png",
+        "description" : ""
+    },
+    {
+        "title" : "The second title",
+        "imageUrl" : "images/b.png",
+        "description" : ""
+    },
+    {
+        "title" : "The third title",
+        "imageUrl" : "images/c.png",
+        "description" : ""
+    }
+
+]
