@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitter&family=Dancing+Script&family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@100..900&display=swap" rel="stylesheet">
     <title>Wedding Invitation</title>
     <style>
         * {
@@ -16,8 +16,8 @@
         
         body {
             height: 100vh;
-            background-color: #121212;
-            color: white;
+            background-color: #ffffff;
+            color: black;
             font-family: Arial, sans-serif;
             transition: background-color 1s ease, color 1s ease;
         }
@@ -38,7 +38,7 @@
             justify-content: center;
             align-items: center;
             border-image: auto;
-            background-image: url(https://tse3.mm.bing.net/th?id=OIP.QpDpH-yNY7IfwAoRvzVJJAHaKX&pid=Api&P=0&h=220);
+            background-image: url(https://i.pinimg.com/474x/23/71/e1/2371e134ef10d7307b2699d95df4bf48.jpg);
             border-radius: 15px;
             animation: fadeIn 3.5s ease-in-out;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
@@ -151,40 +151,29 @@
             }
         }
 
-        @media (prefers-color-scheme: dark) {
-            body.dark {
-                background-color: #121212;
-                color: white;
-            }
+        .dark {
+            background-color: #121212;
+            color: whitesmoke;
+        }
 
-            .first-page.dark, .second-page.dark, .countdown-page.dark {
-                background-color: #1c1c1c;
-                color: white;
-            }
+        .dark .first-page, .dark .second-page, .dark .countdown-page {
+            background-image: url(https://i.pinimg.com/474x/9e/29/29/9e2929574500b03c8092d956604337e5.jpg);
+            color: white;
+        }
 
-            .card.dark {
-                background-color: #3b3b3b;
-                color: black;
-            }
+        .dark .first-page > div, .dark .first-page > p, .dark .first-page > h1, .dark .first-page > h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: rgba(180, 113, 13, 0.717);
+            font-family: 'bitter';
+        }
 
-            .line.dark {
-                background-color: white;
-            }
-
-            @keyframes float {
-                0% { transform: translateY(0); }
-                50% { transform: translateY(-20px); }
-                100% { transform: translateY(0); }
-            }
-
-            .genap {
-                display: flex;
-                flex-direction: row-reverse;
-                align-items: center;
-                padding-bottom: 4rem;
-                justify-content: space-evenly;
-                animation: float 2s infinite;
-            }
+        .dark .second-page > div, .dark .second-page > p, .dark .second-page > h1, .dark .second-page > h2,
+        .dark .countdown-page > div, .dark .countdown-page > p, .dark .countdown-page > h1, .dark .countdown-page > h2 { 
+            text-align: center;
+            margin-bottom: 20px;
+            color: rgb(255, 163, 52);
+            font-family: 'bitter'
         }
 
         .btn {
@@ -219,14 +208,8 @@
 
         .btn span.dark-mode-icon.dark::after {
             content: "☀️";
-            background-color: #FFFFFF;
         }
 
-        .dark {
-            color: whitesmoke;
-            background-color: rgb(40, 40, 40);
-            transition: background-color 1s ease;
-        }
     </style>
 </head>
 <body>
@@ -249,8 +232,8 @@
                 <p>Sunday, October 8, 2028</p>
             </div>
             <div class="guest-name">
-                <p>To the esteemed guest,</p>
-                <p>Artha, Ph.Y.</p>
+                <p>Kenapa yang mulia,</p>
+                <p>Artha, Ph.C.</p>
             </div>
         </section>
 
@@ -261,7 +244,7 @@
                 that way i only had to mourn a garden instead of forest</p>
             <div class="card">
                 <div class="circle"></div>
-                <h1>Artha, M.Y</h1>
+                <h1>Artha, Ph.C.</h1>
                 <div class="line"></div>
                 <p>Mr. Artha</p>
                 <p>&</p>
@@ -281,22 +264,16 @@
             let darkInfo = localStorage.getItem("dark") === 'true';
             
             const switchDark = () => {
-                document.querySelector("body").classList.add('dark');
-                document.querySelector("body").style.backgroundColor = "#121212";
+                document.body.classList.add('dark');
                 document.querySelectorAll(".first-page, .second-page, .countdown-page").forEach(page => {
                     page.classList.add('dark');
-                    page.style.backgroundColor = "#1c1c1c";
-                    page.style.color = "white";
                 });
             }
 
             const switchLight = () => {
-                document.querySelector("body").classList.remove('dark');
-                document.querySelector("body").style.backgroundColor = "white";
+                document.body.classList.remove('dark');
                 document.querySelectorAll(".first-page, .second-page, .countdown-page").forEach(page => {
                     page.classList.remove('dark');
-                    page.style.backgroundColor = "black";
-                    page.style.color = "white";
                 });
             }
 
