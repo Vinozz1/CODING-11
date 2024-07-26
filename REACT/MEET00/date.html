@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+</head>
+<style>
+ 
+</style>
+<body>
+    <div class="container">
+        <section class="countdown-page">
+            <h2>Countdown</h2>
+            <div id="countdown" class="countdown"></div>
+            <p>I'll see u later!</p>
+        </section>
+    </div>
+</body>
+<script>
+    function updateCountdown() {
+            const eventDate = new Date('October 8, 2028 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = "The event has started!";
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+</script>
+</html>

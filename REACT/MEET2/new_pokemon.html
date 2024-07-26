@@ -75,28 +75,30 @@
         }
 
         function loadDataPromise(url){
-            return new Promis((resolve, reject)=> {
-                const ajax = new XMLHttpRequest();
-                ajax.onload = function(){
-                    if (this.status == 200 && this.readyState == 4) {
-                        data = JSON.parse(this.responseText);
-                        resolve(data);
-                    } else {
-                        reject("No data");
-                    }
-                    setTimeout(()=>{
-                        reject("No data");
-                    }, 3000);
-                };
-                ajax.open("GET", url, true);
-                ajax.send();
-            })
-        } 
+            return new Promise((resolve, reject)=> {
+            const ajax = new XMLHttpRequest();
+            ajax.onload = function(){
+
+                if (this.status == 200 && this.readyState == 4) {
+                    data = JSON.parse(this.responseText);
+                    resolve(data);
+                } else {
+                    reject("No data");
+                }
+                
+                setTimeout(()=>{
+                    reject("No data");
+                }, 3000);
+            };
+
+            ajax.open("GET", url, true);
+            ajax.send();
+        })
+        }
 
         let data = {};
         let currentIndex = 1;
         let url = `https://pokeapi.co/api/v2/pokemon/${currentIndex}`
-        
 
         // const ajax = new XMLHttpRequest();
         // ajax.open("GET", url, true);
@@ -111,20 +113,20 @@
                 console.log(result);
                 updateContent();
             })
-            .catch( error => console.error(error));  
+            .catch( error => console.error(error));
         
         document.getElementById("right").addEventListener('click', () => {
             if (currentIndex > 0){
                 currentIndex++;
-                loadDataPromise(`https://pokeapi.co/api/v2/pokemon/${currentIndex}`)
-                    .then( result => {
+                // updateContent(currentIndex);
+                loadDataPromise(url)
+                    .then(result => {
                         console.log(result);
                         updateContent();
                     })
                     .catch( error => console.error(error));
                     }
         })
-            
     </script>
 </body>
 </html>

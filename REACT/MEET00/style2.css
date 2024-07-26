@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+body {
+    font-family: 'Indie Flower', cursive !important;
+    background: #FDE3A7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+::selection {
+    background: transparent;
+}
+
+h4 {
+    font-size: 2.6rem;
+    line-height: 1;
+    font-family: 'Amatic SC', cursive !important;
+}
+
+.color1 { color: #1BBC9B; }
+.color2 { color: #C0392B; }
+
+.card {
+    color: #013243;
+    position: relative;
+    width: 90vw;  
+    max-width: 800px;  
+    height: 80vh;  
+    max-height: 900px; 
+    background: #e0e1dc;
+    transform-style: preserve-3d;
+    box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 20px 0 60px rgba(0,0,0,.5);
+    transition: 1s;
+    margin: 0 auto;
+}
+
+.card:hover,
+.card.hover {
+    transform: perspective(2000px) rotateY(15deg) scale(1.2);
+    box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
+}
+
+.card:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #BAC1BA;
+    transform-origin: bottom;
+    transform: skewX(-45deg);
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 5px;
+    height: 100%;
+    background: #92A29C;
+    transform-origin: left;
+    transform: skewY(-45deg);
+}
+
+.card .imgBox {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-origin: left;
+    transition: .7s;
+}
+
+.card .bark {
+    position: absolute;
+    background: #e0e1dc;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: .7s;
+}
+
+.card .imgBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card:hover .imgBox,
+.card.hover .imgBox {
+    transform: rotateY(-135deg);
+}
+
+.card:hover .bark,
+.card.hover .bark {
+    opacity: 1;
+    transition: .6s;
+    box-shadow: 300px 200px 100px rgba(0,0,0,-4) inset;
+}
+
+.card .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 40px; 
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .details p {
+    font-size: 2rem; 
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+}
+
+.card .details h4 {
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.text-right {
+    text-align: right;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    h4 {
+        font-size: 2.4rem;
+    }
+
+    .card {
+        width: 95vw;
+        height: 70vh;
+    }
+
+    .card .details p {
+        font-size: 1.8rem;
+    }
+}

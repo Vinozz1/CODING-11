@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="content"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebar@latest/dist/handlebars.js"></script>
+
+    <script id="cardTemplate" type="text/x-handlebars-template">
+        <div class="card">
+            <h1 id="title">{{title}}</h1>
+            <p class="text">{{text}}</p>
+            <img src="{{ imgUrl }}" alt="" id="image"> 
+        </div>
+    </script> 
+
+    <script>
+        // compile the template 
+        const template = Handlebars.compile("Handlebars <b>{{doesWhat}}<b>");
+        // execute the compiled tmeplate and print the output to the console
+        //console.log(template({ doesWhat: "rocks!"}));
+        // document.getElemendById("content").innerHTML = template({ doesWhat : "rocks!"});
+
+        const cardTemplate = Handlebars.compile(`
+            {{#each pokemons}}
+            <div class="card">
+                <h1 id="title">{{title}}</h1>
+                <p class="text">{{text}}</p>
+                {{#if imgUrl}}
+                    <img src="{{ imgUrl }}" alt="" id="image">
+                {{else}}
+                    <p>No Image</p>
+                {{/if}}
+            </div>
+            {{/each}}
+        `); // lebih dari 1
+
+        const cardTemplate2 = Handlebars.compile(document.getElementById("cardTemplate").innerHTML)
+
+        const info = { 
+            title : "The Best",
+            text : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus beatae eveniet nisi in quae nobis architecto nam eos, optio quis.",
+            imgUrl : "th.jpeg"
+        };
+
+        const infos = {
+            "pokemons" : [
+                {
+                    title : "The Best",
+                    text : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus beatae eveniet nisi in quae nobis architecto nam eos, optio quis.",
+                    imgUrl : "th.jpeg"
+                },
+                {
+                    title : "The Second choice to her future",
+                    text : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus beatae eveniet nisi in quae nobis architecto nam eos, optio quis.",
+                    imgUrl : "th.jpeg"
+                }
+            ]
+        }
+
+        // document.getElementById("content").innerHTML = cardTemplate2(info);
+
+        document.getElementById("content").innerHTML = cardTemplate(infos);
+
+
+    </script>
+    
+</body>
+</html>

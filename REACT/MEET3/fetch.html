@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+<body>
+    <div class="container">
+
+        <span id="left">◀️</span>
+        <div class="content">
+            <h1 id="title"></h1>
+            <img src="" alt="" id="image">
+            <p id="description"></p>
+        </div>
+        <span id="right">▶️</span>
+
+    </div>
+    <script>
+        function updateContent(){
+            let pokemon = data;
+            document.getElementById("title").innerHTML = pokemon.name;
+            document.getElementById("image").src = pokemon.sprites.front_default;
+        }
+
+        let data = {};
+        let currentIndex = 1;
+
+        // fetch(`https://pokeapi.co/api/v2/pokemon/${currentIndex}`)
+        //     .then(result => {
+        //         return result.json()
+        //     })
+        //     .then(result => {
+        //         data = result;
+        //         //
+        //         updateContent();
+        //     })
+        //     .catch(error => {
+        //         console.error(error);
+        //     });
+
+        async function loadPokemon(){
+            try {
+                let result = await fetch(`https://pokeapi.co/api/v2/pokemon/${currentIndex}`);
+                data = await result.json()
+                //
+                updateContent();
+                console.log(result.json());
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        loadPokemon();
+
+        document.getElementById("left").addEventListener('click', () => {
+            if (currentIndex > 1){
+                currentIndex--;
+                loadPokemon();
+            }
+        });
+        document.getElementById("right").addEventListener('click', () => {
+            if (currentIndex < 100){
+                currentIndex++;
+                loadPokemon();
+            }
+        });
+    </script>
+</body>
+</html>

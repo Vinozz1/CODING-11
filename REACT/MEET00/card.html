@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTOFOLIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>I want to say to you that</h1>
+        <div class="card" id="card">
+            <div class="imgBox">
+                <div class="bark"></div>
+                <img src="th.jpeg" alt="">
+            </div>
+
+            <div class="details">
+                <h4 class="color1">Happy </h4>
+                <h4 class="color2 margin" id="nama-header"></h4>
+                <p>Thankyou, for showing me,</p>
+                <p>Who you are before i built my whole life on your land,</p>
+                <p>That way,</p>
+                <p>I only had to mourn a garden instead of forest.</p>
+                <p>I love you, <span id="nama-content"></span>, may god bless our </p>
+                <p class="text-right">Ur husband.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var nama = localStorage.getItem('nama');
+        if (nama) {
+            document.getElementById('nama-header').innerText = nama;
+            document.getElementById('nama-content').innerText = nama;
+        }
+
+        // Add touch event listeners for mobile devices
+        var card = document.getElementById('card');
+        card.addEventListener('touchstart', function() {
+            card.classList.add('hover');
+        });
+
+        card.addEventListener('touchend', function() {
+            card.classList.remove('hover');
+        });
+    </script>
+</body>
+</html>
+
