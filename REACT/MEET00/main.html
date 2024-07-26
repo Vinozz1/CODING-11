@@ -7,19 +7,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section class="top">
-        <div id="home">Home</div>
-        <a href="" class="contact">Contact</a>
-        <a href="date.html" class="date">Date</a>
-        <a href="card.html" class="card">Card</a>
-    </section>
+    <header>
+        <nav class="navbar">
+            <div class="logo" id="home">Home</div>
+            <div class="menu" id="menu">
+                <a href="#" class="nav-link">Contact</a>
+                <a href="date.html" class="nav-link">Date</a>
+                <a href="card.html" class="nav-link">Card</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
 
-    <section class="main">
+    <section class="main scroll-animate">
         <div class="title">undangan</div>
-
         <section id="top">
             <div class="right">
-                <img src="" alt="" id="Vino">
+                <img src="WhatsApp Image 2024-07-16 at 21.08.22.jpeg" alt="" id="Vino">
             </div>
             <div class="left">
                 <h1>Jonathan Alvino</h1>
@@ -38,7 +46,38 @@
         </section>
     </section>
 
-    <section class="bottom">
+    <section class="bottom scroll-animate">
+        <div class="name">Artha Surya</div>
+        <div class="invitation">Ditunggu kehadirannya pada tanggal 26 September 2024!</div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const menu = document.getElementById('menu');
+
+            hamburger.addEventListener('click', function() {
+                menu.classList.toggle('active');
+            });
+
+            const elements = document.querySelectorAll('.scroll-animate');
+            const options = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
 </body>
 </html>
