@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+    <style>
+        .loading {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 4px solid #ccc;
+            border-radius: 50%;
+            border-top-color: #333;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translate(-50%, -50%);
+            background-image: url(Magnify@1x-2.0s-200px-200px.gif);
+        }
+
+        .image-container {
+            position: relative;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <span id="left">◀️</span>
+        <div class="content">
+            <h1 id="title"></h1>
+            <div class="image-container">
+                <img src="" alt="" id="image">
+                <div class="loading" id="loading"></div>
+            </div>
+            <p id="description"></p>
+        </div>
+        <span id="right">▶️</span>
+
+    </div>
+    <script>
+        function updateContent(){
+            let pokemon = data;
+            document.getElementById("title").innerHTML = pokemon.name;
+            document.getElementById("image").src = pokemon.sprites.front_default;
+            document.getElementById("description").innerHTML = `Type: ${pokemon.types[0].type.name}`;
+            document.getElementById("loading").style.display = "none"; 
+        }
+
+        let data = {};
+        let currentIndex = 1;
+
+        async function loadPokemon(){
+            try {
+                document.getElementById("loading").style.display = "block"; 
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${currentIndex}`);
+                data = await response.json();
+                updateContent();
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        loadPokemon();
+
+        document.getElementById("right").addEventListener('click', () => {
+            if (currentIndex < 100){
+                currentIndex++;
+                loadPokemon();
+            }
+        });
+
+        document.getElementById("left").addEventListener('click', () => {
+            if (currentIndex > 1){
+                currentIndex--;
+                loadPokemon();
+            }
+        });
+    </script>
+</body>
+</html>
