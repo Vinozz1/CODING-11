@@ -47,37 +47,86 @@
     </section>
 
     <section class="bottom scroll-animate">
-        <div class="name">Artha Surya</div>
+        <div class="name"></div>
         <div class="invitation">Ditunggu kehadirannya pada tanggal 26 September 2024!</div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero officiis rerum alias, libero temporibus aliquid et excepturi ab iste ullam, numquam voluptas cumque dolor voluptatem perspiciatis iure delectus sequi molestias! Ipsa soluta, nemo laborum, atque quia et eum debitis labore laboriosam eveniet aut nulla sit? Ducimus quibusdam tenetur est molestiae?</p>
     </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.getElementById('hamburger');
-            const menu = document.getElementById('menu');
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
 
-            hamburger.addEventListener('click', function() {
-                menu.classList.toggle('active');
-            });
+    hamburger.addEventListener('click', function() {
+        menu.classList.toggle('active');
+    });
 
-            const elements = document.querySelectorAll('.scroll-animate');
-            const options = {
-                threshold: 0.1
-            };
+    const elements = document.querySelectorAll('.scroll-animate');
+    const options = {
+        threshold: 0.1
+    };
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, options);
-
-            elements.forEach(element => {
-                observer.observe(element);
-            });
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
         });
+    }, options);
+
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 0) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
+    });
+});
+
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days*24*60*60*1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(name) {
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    const cookieName = name + "=";
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(cookieName) == 0) {
+            return c.substring(cookieName.length, c.length);
+        }
+    }
+    return "";
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    let userName = getCookie("userName");
+    
+    if (!userName) {
+        userName = prompt("Please enter your name:");
+        if (userName) {
+            setCookie("userName", userName, 7);
+        }
+    }
+
+    const nameElement = document.querySelector('.bottom .name');
+    if (nameElement) {
+        nameElement.textContent = userName || "Guest"; 
+    }
+});
     </script>
 </body>
 </html>
