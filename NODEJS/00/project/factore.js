@@ -16,13 +16,12 @@ rl.question('Enter the value of a: ', answerA => {
         rl.question('Enter value of c: ', answerC => {
             c = parseFloat(answerC);
             const rootA = ( -b - Math.sqrt(b*b - 4 * a * c)) / 2;
-            const rootB = ( -b + Math.sqrt(b*b - 4 * a * c)) / 2;
+            const rootB = ( -b + Math.sqrt(b*b - 4 * a * c)) / 2;        
             if ( a == 1 ){
                 console.log(`The value of the root x^2${b}x${c} = ${rootA} n ${rootB }`);
             } else {
                 console.log(`The value of the root ${a}x^2${b}x${c} = ${rootA} n ${rootB }`);
             }
-            rl.close();
         });
     });
 });
