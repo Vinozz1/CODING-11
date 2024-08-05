@@ -22,6 +22,8 @@ rl.question('Enter the value of a: ', answerA => {
             } else {
                 console.log(`The value of the root ${a}x^2${b}x${c} = ${rootA} n ${rootB }`);
             }
+            rl.close();
         });
     });
 });
+
