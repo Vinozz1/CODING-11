@@ -38,6 +38,32 @@ app.get('/contact', (req, res) => {
     });
 });
 
+app.get('/christmas', (req, res) => {
+    // let obj = new Date();
+    // let day = obj.getUTCDate();
+    // let month = obj.getUTCMonth();
+    const today = new Date();
+    const christmas = today.getUTCDate() === 25 && today.getUTCMonth() + 1 === 12;
+
+    res.render('christmas', {
+        title: 'christmas',
+        christmas: christmas,
+    });
+})
+
+app.get('/birthday', (req, res) => {
+    // let obj = new Date();
+    // let day = obj.getUTCDate();
+    // let month = obj.getUTCMonth();
+    const today = new Date();
+    const birthday = today.getUTCDate() === 9 && today.getUTCMonth() + 1 === 1;
+
+    res.render('birthday', {
+        title: 'birthday',
+        birthday: birthday,
+    });
+})
+
 
 
 app.use((req, res) => {
