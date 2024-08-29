@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-const dbURl = 'mongodb+srv://jonathanalvino14:AlfredLisaVino09@node-app.rezwo.mongodb.net/?retryWrites=true&w=majority&appName=node-app';
+const dbURl = 'mongodb+srv://jonathanalvino14:@node-app.rezwo.mongodb.net/?retryWrites=true&w=majority&appName=node-app';
 mongoose.connect(dbURl)
         .then(result => {
             console.log('connected to db');
