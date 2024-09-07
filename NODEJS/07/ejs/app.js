@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
- 
-const Blog = require('./models/blog');
- 
-const app = express();
 
-const dbURl = 'mongodb+srv://jonathanalvino14:@node-app.rezwo.mongodb.net/?retryWrites=true&w=majority&appName=node-app';
+const Blog = require('./models/blog');
+
+const app = express();
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+const dbURl = 'mongodb+srv://jonathanalvino14:Alvino09@node-app.rezwo.mongodb.net/?retryWrites=true&w=majority&appName=node-app';
 mongoose.connect(dbURl)
         .then(result => {
           console.log('connected to db');

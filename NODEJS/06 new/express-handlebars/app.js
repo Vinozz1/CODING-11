@@ -14,7 +14,7 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
     res.render('index', {
         title: 'Home Page',
-        message: 'Howdy Handlebars!',
+        message: 'Welcome to Your Theme!',
     });
 });
 
@@ -64,7 +64,21 @@ app.get('/birthday', (req, res) => {
     });
 })
 
+app.get('/about', (req, res) => {
+    res.render('about', { layout: false }); 
+});
 
+app.get('/characters', (req, res) => {
+    res.render('characters', { layout: false });
+});
+
+app.get('/coach', (req, res) => {
+    res.render('coach', { layout: false });
+});
+
+app.get('/index', (req, res) => {
+    res.render('index', { layout: false });
+});
 
 app.use((req, res) => {
     res.status(404).send('<h1>404, oops not found!</h1>')
@@ -75,3 +89,4 @@ app.listen(PORT, () => {
     console.log(`Server is running on https://127.0.0.1:${PORT}`);
 });
 
+app.use(express.static('public'));
