@@ -66,6 +66,79 @@ h3{
     color: crimson;
 }
 
+
+/* new index */
+
+/* Adjust the blog container for flexible rows */
+.blogs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Space between the cards */
+    margin-bottom: 40px; /* Adds space at the bottom */
+}
+.blogs h2 {
+    margin: 0;          /* Removes margin */
+    padding: 0;         /* Removes padding */
+    line-height: 1.2;   /* Tightens up the space for the text */
+    height: auto;       /* Ensures the height adjusts based on content */
+    display: inline-block; /* Shrinks the box to fit the content */
+}
+
+
+
+/* Styling for individual blog cards */
+.single {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(33.333% - 20px); /* Ensures 3 cards per row with space */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    min-height: 200px; /* Set a standard height */
+}
+
+/* Ensure that the title and snippet are properly spaced */
+.single .title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.single .snippet {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.5;
+    flex-grow: 1; /* Take up space to ensure consistent heights */
+}
+
+/* Hover effect to elevate the card */
+.single:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive layout for medium screens (tablets) */
+@media (max-width: 992px) {
+    .single {
+        width: calc(50% - 20px); /* Adjust to 2 cards per row on smaller screens */
+    }
+}
+
+/* Responsive layout for small screens (phones) */
+@media (max-width: 768px) {
+    .single {
+        width: 100%; /* One card per row on small screens */
+    }
+}
+
+/*  */
+
 /* details styles */
 .details{
     position: relative;
@@ -110,3 +183,83 @@ textarea{
     font-size: 1.2em;
     cursor: pointer;
 }
+
+/*  */
+
+.about.content {
+    max-width: calc(100% - 280px); 
+    margin-right: 270px; 
+  }
+  
+  .about.content h2 {
+    margin-bottom: 20px; 
+    font-family: 'Arial', sans-serif;
+    color: #6913e9; 
+  }
+  
+  .about.content h3 {
+    margin-top: 40px; 
+    margin-bottom: 20px; 
+    font-family: 'Arial', sans-serif;
+    color: rgb(30, 30, 120);
+  }
+  
+  .about.content p {
+    margin-bottom: 20px; 
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .ad-banner {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .ad-banner img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .sidebar {
+    position: fixed;
+    right: 10px;
+    top: 160px; 
+    width: 250px;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 30px; 
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      position: relative;
+      width: 100%;
+      top: auto;
+      right: auto;
+      margin-top: 20px;
+    }
+  }
+  
+  .sidebar h3 {
+    color: #F0DB4F;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar ul li a {
+    color: #FFF;
+    text-decoration: none;
+  }
+  
+  .sidebar ul li a:hover {
+    text-decoration: underline;
+  }
