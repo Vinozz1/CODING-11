@@ -5,10 +5,9 @@ const bodyParser = require('body-parser');
 const Blog = require('./models/blog');
  
 const app = express();
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
- 
-const dbURI = 'mongodb+srv://jonathanalvino14:Alvino09@node-app.rezwo.mongodb.net/?retryWrites=true&w=majority&appName=node-app';
-mongoose.connect(dbURI)
+
+const dbURl = 'mongodb+srv://jonathanalvino14:@node-app.rezwo.mongodb.net/?retryWrites=true&w=majority&appName=node-app';
+mongoose.connect(dbURl)
         .then(result => {
           console.log('connected to db');
           const PORT = 3000;
