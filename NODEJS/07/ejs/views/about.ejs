@@ -8,21 +8,31 @@
     <h2>About Us</h2>
     <p>MLNEWS (Mobile Legends News) is a news and media group that publishes news, features, blogs, editorials, and guides that serve to help facilitate better learning and understanding of the Mobile Legends: Bang Bang esports scene.</p>
 
-    <h3>What We Do</h3>
+    <h2>What We Do</h2>
     <p>We are a team of tech-savvy individuals who play a lot of MOBA games. We thrive on giving concise and honest information for Mobile Legends. We are a group of friends comprising a Writer, a Web Developer, a Marketer, and an Ex Professional Gamer. All of whom experienced the fun and punishments of the MOBA genre. We aim to bring the hottest and latest ML News all over the globe, from the newest patch to what's happening in the pro scene.</p>
 
-    <div class="ad-banner">
-      <img src="" alt="Ad Banner">
-    </div>
-  </div>
+<div class="esel">
+  <h5>CHECK OUR LATEST POST</h5>
+</div>
 
-  <div class="sidebar">
-    <h3>Latest Posts</h3>
-    <ul>
-      <li><a href="#">How To: Execute Successful Ganks</a></li>
-      <li><a href="#">A Beginner's Guide to Mobile Legends</a></li>
-      <li><a href="#">How to Jungle: Map Awareness in Mobile Legends</a></li>
-    </ul>
+    <div class="latest-posts">
+      <% if (latestBlogs.length > 0) { %>
+        <% if (latestBlogs[0]) { %>
+          <a href="/blogs/<%= latestBlogs[0]._id %>">
+            <h3><%= latestBlogs[0].title %></h3>
+          </a>
+          <p><%= latestBlogs[0].snippet %></p>
+        <% } %>
+        <% if (latestBlogs[1]) { %>
+          <a href="/blogs/<%= latestBlogs[1]._id %>">
+            <h3><%= latestBlogs[1].title %></h3>
+          </a>
+          <p><%= latestBlogs[1].snippet %></p>
+        <% } %>
+      <% } else { %>
+        <p>No latest posts available.</p>
+      <% } %>
+    </div>
   </div>
 
   <%- include("./partials/footer.ejs") %>

@@ -263,3 +263,82 @@ textarea{
   .sidebar ul li a:hover {
     text-decoration: underline;
   }
+
+  .hero {
+    padding: 100px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-app-store, .btn-google-play {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-app-store:hover, .btn-google-play:hover {
+    background-color: #3e8e41;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.new-season {
+    background-color: #f7f7f7;
+    padding: 50px 0;
+}
+
+.new-season h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.new-season p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.latest-posts {
+    margin-top: 5vh; /* Adjust this value as needed for more space */
+}
+
+.esel {
+    background-color: #f7f7f7; /* Light background for contrast */
+    padding: 20px; /* Spacing inside the div */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 30px; /* Space below the element */
+    text-align: center; /* Center the text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.esel h5 {
+    font-size: 1.5em; /* Slightly larger font size */
+    color: #333; /* Dark text color */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 10px; /* Space below the heading */
+}
