@@ -1,0 +1,21 @@
+<html lang="en"></html>
+  <%- include("./partials/head.ejs") %>
+
+  <body class="blogkamu" style="background-color: rgb(22, 22, 22) ;">
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="blog content">
+      <h2>Blogs</h2>
+      <% if (blogs.length > 0) { %> <% blogs.forEach(blog => { %>
+      <a class="single" href="/blogs/<%= blog._id %>">
+        <h3 class="title"><%= blog.title %></h3>
+        <p class="snippet"><%= blog.snippet %></p>
+      </a>
+      <% }) %> <% } else { %>
+      <p>No blogs have been created.</p>
+      <% } %>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>
