@@ -1,0 +1,12 @@
+[
+    {
+      "_id": "1",
+      "title": "First Blog Post",
+      "snippet": "This is the first blog snippet."
+    },
+    {
+      "_id": "2",
+      "title": "Second Blog Post",
+      "snippet": "This is the second blog snippet."
+    }
+  ]
