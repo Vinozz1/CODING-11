@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { OMDB_API_KEY } from "./config";
+import StarRatings from "./components/StarRatings";
+// import './styles.css'
 
 function Logo() {
   return (
@@ -181,6 +183,29 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
             <p>Genre: {genre}</p>
             <p>Starring: {actors}</p>
             <p>Directed by: {director}</p>
+
+            <div className="rating">
+              {!isWatched ? (
+                <>
+                  <StarRatings 
+                    max={10}
+                    size={24}
+                    color="#fcc419"
+                    onSetRating={setUserRating}
+                />
+                {userRating > 0 && (
+                  <button className="btn-add" onClick={handleAddWatched}>
+                    + Add to watched
+                  </button>
+                )}
+                </>
+              ) : (
+                <p>
+                  you have watched this movie with a rating of{ ""}
+                  {userRatingWatched} / 10
+                </p>
+              )}
+            </div>
           </section>
         </>
       )}

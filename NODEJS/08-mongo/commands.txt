@@ -1,0 +1,70 @@
+show dbs
+show collections
+use <db> (pindah")
+cls 
+var <variable>
+help 
+exit
+
+cls(clear)
+
+untuk membuat collection or new document
+
+use bookstore
+db.books or db.createCollection("books")
+db.books.insertOne({title: "Aku bukan kamu", author:"Budi", pages: 300, rating: 7, genres : ["fantasy", "magic"]})
+db.authors.insertOne({name: "brandon", age : 50})
+db.books.insertMany([{}, {}])
+
+db.books.find()
+db.books.find({author : "Budi"})
+db.books.find({},{title:0})
+db.books.find({author : "Budi"}, {title: 0})
+db.books.findOne({_id: ObjectId("672c88c4b36dd23bef723c4f")})
+
+db.books.countDocuments()
+db.books.find({author : "Budi"}).count()
+db.books.countDocuments({ author: "Budi" })
+db.books.find().limit(2)
+db.books.find().sort({title: 1})
+db.books.find().sort({title: -1}.limit(n))
+
+
+
+db.books.find({rating: {$gt:7}})
+
+db.books.find({rating: {$lt:5}})
+
+db.books.find({rating: {$lte:7}})
+
+db.books.find({rating: {$gt:7}, author:"Budi"})
+
+db.books.find({$or: [{rating : 7}, {rating: 9}]})
+db.books.find({$or: [{pages : {$lt: 300}}, {pages: {$gte: 400}}]})
+
+db.books.find({rating: {$in : [7, 8, 9]}})
+db.books.find({rating: {$nin : [7, 8, 9]}})
+
+db.books.find({genre: {$all:["fantasy","sci-fi"]}})
+
+db.books.find({"reviews.name": "luigi"})
+
+db.books.find({author:"Paulo Coelho"})
+db.books.find({rating: {$gt:4.5}})
+db.books.find({"reviews.name":"Alice"},{genre: {$all:["Thriller"]}})
+
+reviews array of objects
+genres array of strings
+db.books.deleteOne( { _id : ObjectId(“ “) } )
+db.books.deleteMany( { author: “Budi” } )
+db.books.updateOne( { _id: ObjectId(“  ”) },  {$set: {rating: 8, pages : 360}} )
+db.books.updateOne( { _id: ObjectId(“  ”) },  { $inc : {pages : 2 }} )
+
+db.books.updateOne( { _id: ObjectId(“  ”) },  { $pull : {genres : “fantasy” }} )
+db.books.updateOne( { _id: ObjectId(“  ”) },  { $push : {genres : “comedy” }} )
+db.books.updateOne( { _id: ObjectId(“  ”) },  { $push : {genres : { $each : [“1”, “2”] }  }} )
+
+db.books.updateMany( { author: “Budi”},  { $set : {author: “Susanto” }}  )
+
+List of objects / object  as attributes
+db.books.find( { “reviews.name” : “luigi” } )
